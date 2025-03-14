@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shaik Haaris Saad | Data Analytics Portfolio</title>
+    <meta name="description" content="Shaik Haaris Saad - Data Analytics Professional Portfolio showcasing data analysis, visualization, and insights">
+    <meta name="keywords" content="Shaik Haaris Saad, Data Analytics, Portfolio, Data Analysis, Data Visualization">
+    <meta name="author" content="Shaik Haaris Saad">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Cookie consent -->
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.css">
+    <script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="nav">
+            <div class="nav-brand">Shaik Haaris Saad</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#projects">Projects</a>
+                <a href="#tableau-viz">Visualizations</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <header class="hero">
+            <div class="hero-content">
+                <h1>Hi, I'm Shaik Haaris Saad</h1>
+                <div class="subtitle">
+                    <span>I'm a</span>
+                    <div class="typing-text">
+                        <span class="text">Data Analyst</span>
+                        <span class="text">Financial Analyst</span>
+                        <span class="text">Business Analyst</span>
+                        <span class="text">Risk Analyst</span>
+                    </div>
+                </div>
+                <p class="hero-description">
+                    Transforming data into actionable insights through analytics and visualization.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="primary-btn">Explore my work</a>
+                    <a href="#contact" class="secondary-btn">Get in touch</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- About Section -->
+        <section id="about" class="section">
+            <div class="section-content">
+                <h2>About Me</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <p>Analyst with expertise in business analytics, risk assessment, and predictive modeling. Skilled in SQL, Python, R, Tableau, and Power BI, with a strong foundation in insurance risk analytics and financial data processing.</p>
+                        <p>Experienced in data management, compliance reporting, and strategic decision-making to support insurance operations and underwriting. Utilizes data-driven insights to enhance risk management and optimize operational efficiency.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section">
+            <div class="section-content">
+                <h2>My Skills</h2>
+                <div class="skills-grid">
+                    <div class="skill-category">
+                        <h3>Data Analysis</h3>
+                        <ul class="skill-list">
+                            <li>Python (Pandas, NumPy)</li>
+                            <li>R Programming</li>
+                            <li>SQL & Database Management</li>
+                            <li>Statistical Analysis</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Visualization</h3>
+                        <ul class="skill-list">
+                            <li>Tableau</li>
+                            <li>Power BI</li>
+                            <li>Data Storytelling</li>
+                            <li>Dashboard Development</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Business Intelligence</h3>
+                        <ul class="skill-list">
+                            <li>Financial Analysis</li>
+                            <li>Risk Assessment</li>
+                            <li>Process Optimization</li>
+                            <li>Strategic Planning</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section">
+            <div class="section-content">
+                <h2>Featured Projects</h2>
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card">
+                        <h3>Corporate Credit Risk Assessment</h3>
+                        <p>Developed a predictive analytics model achieving 93.2% accuracy in identifying high-risk loan applicants. Implemented Random Forest algorithm to enhance credit risk assessment and reduce default rates.</p>
+                        <div class="project-metrics">
+                            <table class="metrics-table">
+                                <tr>
+                                    <th>Model</th>
+                                    <th>Accuracy</th>
+                                </tr>
+                                <tr>
+                                    <td>Logistic Regression</td>
+                                    <td>84.47%</td>
+                                </tr>
+                                <tr>
+                                    <td>Random Forest</td>
+                                    <td>93.2%</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="project-details">
+                            <div class="project-tools">Python • Machine Learning • Data Analysis</div>
+                            <a href="https://github.com/haaris519/Python-Proti/blob/main/Data1.ipynb" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i> View Project
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <h3>Airline Performance & Delay Prediction</h3>
+                        <p>Built an ML model achieving 82% accuracy in predicting flight delays using XGBoost. Implemented SMOTE for handling class imbalance and created a user-friendly prediction system for real-time flight status assessment.</p>
+                        <div class="project-metrics">
+                            <table class="metrics-table">
+                                <tr>
+                                    <th>Metric</th>
+                                    <th>Score</th>
+                                </tr>
+                                <tr>
+                                    <td>Overall Accuracy</td>
+                                    <td>82%</td>
+                                </tr>
+                                <tr>
+                                    <td>Precision (On Time)</td>
+                                    <td>85%</td>
+                                </tr>
+                                <tr>
+                                    <td>Precision (Delayed)</td>
+                                    <td>75%</td>
+                                </tr>
+                                <tr>
+                                    <td>Recall (Delayed)</td>
+                                    <td>68%</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="project-details">
+                            <div class="project-tools">Python • XGBoost • SMOTE • Feature Engineering</div>
+                            <a href="https://github.com/haaris519/Python-Proti/blob/main/project2.ipynb" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i> View Project
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Project 3 -->
+                    <div class="project-card">
+                        <h3>Stock Price Prediction</h3>
+                        <p>Developed an ML model using XGBoost to predict stock closing prices with a Mean Absolute Error of $1.09. Implemented real-time data fetching from Yahoo Finance and created interactive visualizations for trend analysis.</p>
+                        <div class="project-metrics">
+                            <table class="metrics-table">
+                                <tr>
+                                    <th>Metric</th>
+                                    <th>Value</th>
+                                </tr>
+                                <tr>
+                                    <td>Mean Absolute Error</td>
+                                    <td>$1.09</td>
+                                </tr>
+                                <tr>
+                                    <td>Training Data Period</td>
+                                    <td>3 Years</td>
+                                </tr>
+                                <tr>
+                                    <td>Features Used</td>
+                                    <td>7</td>
+                                </tr>
+                                <tr>
+                                    <td>Model Type</td>
+                                    <td>XGBoost</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="project-details">
+                            <div class="project-tools">Python • XGBoost • yfinance • Data Visualization</div>
+                            <a href="https://github.com/haaris519/Python-Proti/blob/main/Stock.ipynb" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i> View Project
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Project 4 -->
+                    <div class="project-card">
+                        <h3>Customer Churn Analysis</h3>
+                        <p>Conducted comprehensive analysis of customer churn patterns to identify key factors affecting customer retention. Developed insights to optimize retention strategies and reduce customer attrition.</p>
+                        <div class="project-metrics">
+                            <table class="metrics-table">
+                                <tr>
+                                    <th>Key Finding</th>
+                                    <th>Impact</th>
+                                </tr>
+                                <tr>
+                                    <td>Month-to-Month Contracts</td>
+                                    <td>Highest Churn Rate</td>
+                                </tr>
+                                <tr>
+                                    <td>High Monthly Charges</td>
+                                    <td>Increased Churn Risk</td>
+                                </tr>
+                                <tr>
+                                    <td>Longer Customer Tenure</td>
+                                    <td>Lower Churn Rate</td>
+                                </tr>
+                                <tr>
+                                    <td>Fiber Optic Internet</td>
+                                    <td>Higher Churn Rate</td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="project-details">
+                            <div class="project-tools">Python • Data Analysis • Business Intelligence • Visualization</div>
+                            <a href="https://github.com/haaris519/Python-Proti/blob/main/churn.ipynb" class="project-link" target="_blank">
+                                <i class="fab fa-github"></i> View Project
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tableau Visualizations Section -->
+        <section id="tableau-viz" class="section">
+            <h2>Interactive Dashboards</h2>
+            <div class="viz-grid">
+                <!-- Stock Performance Dashboard -->
+                <div class="viz-card">
+                    <div class="viz-number">01</div>
+                    <h3>Stock Performance Dashboard</h3>
+                    <p>Comprehensive financial analytics dashboard tracking portfolio performance, stock volatility, and individual stock movements. Features include portfolio value tracking, profit/loss analysis, historical trends, and volatility patterns for informed investment decisions.</p>
+                    <div class="viz-tools">
+                        <span class="tool-tag">Tableau</span>
+                        <span class="tool-tag">Financial Analytics</span>
+                        <span class="tool-tag">Portfolio Management</span>
+                        <span class="tool-tag">Data Visualization</span>
+                    </div>
+                    <a href="https://public.tableau.com/app/profile/haaris.saad.shaik/viz/StocksDashboard_17398510003760/Dashboard2" class="viz-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> View Dashboard
+                    </a>
+                </div>
+
+                <!-- COVID-19 Impact Analysis -->
+                <div class="viz-card">
+                    <div class="viz-number">02</div>
+                    <h3>COVID-19 Impact Analysis</h3>
+                    <p>Comprehensive visualization analyzing the global impact of COVID-19 on health metrics and economic indicators.</p>
+                    <div class="viz-tools">
+                        <span class="tool-tag">Tableau</span>
+                        <span class="tool-tag">Python</span>
+                        <span class="tool-tag">Data Visualization</span>
+                    </div>
+                    <a href="https://public.tableau.com/app/profile/haaris.saad.shaik/viz/Covid-19inIndiaDashboardAnalysis_17313820954140/Dashboard1" class="viz-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> View Dashboard
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="section-content">
+                <h2>Let's Connect</h2>
+                <p class="contact-intro">Feel free to reach out for collaborations or just a friendly chat</p>
+                <div class="contact-links">
+                    <a href="mailto:haaris519@gmail.com" class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>haaris519@gmail.com</span>
+                    </a>
+                    <a href="https://linkedin.com/in/shaik-haaris-saad" class="contact-item" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/shaikharissaad" class="contact-item" target="_blank">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>© 2024 Shaik Haaris Saad. All rights reserved.</p>
+        <p>This website uses cookies to analyze website traffic and optimize your website experience.</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize cookie consent
+        window.cookieconsent.initialise({
+            palette: {
+                popup: {
+                    background: "#6366f1"
+                },
+                button: {
+                    background: "#fff",
+                    text: "#6366f1"
+                }
+            },
+            content: {
+                message: "We use cookies to analyze website traffic and optimize your website experience.",
+                dismiss: "Accept",
+                link: "Learn more"
+            }
+        });
+    </script>
+</body>
+</html> 
