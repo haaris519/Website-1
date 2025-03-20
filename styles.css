@@ -265,6 +265,39 @@
     transform: translateY(-3px);
 }
 
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    
+    .hero .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .hero-description {
+        font-size: 1.1rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+    }
+    
+    .primary-btn, .secondary-btn {
+        width: 100%;
+    }
+}
+
 /* Section Animations */
 .section {
     opacity: 0;
@@ -278,113 +311,148 @@
 }
 
 /* Project Cards Enhancement */
-.projects-grid {
+.project-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2.5rem;
+    gap: 2rem;
     padding: 2rem;
     max-width: 1600px;
     margin: 0 auto;
 }
 
 .project-card {
-    background: rgba(15, 23, 42, 0.95);
+    background: linear-gradient(145deg, rgba(15, 23, 42, 0.95), rgba(23, 31, 56, 0.95));
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
     border: 1px solid rgba(79, 70, 229, 0.3);
     transition: all 0.3s ease;
     padding: 2rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
     min-height: 400px;
+    position: relative;
 }
 
 .project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    border-color: rgba(79, 70, 229, 0.5);
-    background: rgba(15, 23, 42, 0.98);
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(96, 165, 250, 0.2);
+    border-color: rgba(96, 165, 250, 0.5);
 }
 
-.project-card h3 {
+.project-content {
+    height: 100%;
+}
+
+.project-content h3 {
     color: #60a5fa;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     margin-bottom: 1.5rem;
     font-weight: 600;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.5px;
+    position: relative;
+    padding-bottom: 0.5rem;
 }
 
-.project-card p {
+.project-content h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, #60a5fa, transparent);
+    border-radius: 2px;
+}
+
+.project-description {
     color: #e2e8f0;
-    font-size: 1.1rem;
+    font-size: 1rem;
     line-height: 1.6;
-    margin-bottom: 2rem;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-    max-width: 90%;
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
 }
 
 .project-metrics {
     margin: 1.5rem 0;
-    overflow-x: auto;
-    background: rgba(0, 0, 0, 0.3);
+    background: rgba(30, 41, 59, 0.7);
     border-radius: 12px;
     padding: 1.2rem;
-    width: 100%;
-    max-width: 90%;
+    border: 1px solid rgba(96, 165, 250, 0.2);
 }
 
 .metrics-table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 0;
-    background: rgba(15, 23, 42, 0.7);
-    border-radius: 8px;
-    overflow: hidden;
-}
-
-.metrics-table th,
-.metrics-table td {
-    padding: 1rem 1.5rem;
-    text-align: center;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .metrics-table th {
-    background: rgba(96, 165, 250, 0.1);
     color: #60a5fa;
     font-weight: 600;
     text-transform: uppercase;
-    font-size: 1.1rem;
     letter-spacing: 0.5px;
+    font-size: 1rem;
+    padding: 0.8rem 1.2rem;
+    text-align: left;
+    opacity: 1;
 }
 
 .metrics-table td {
     color: #e2e8f0;
-    font-size: 1.2rem;
     font-weight: 500;
-}
-
-.metrics-table tr:last-child td {
-    border-bottom: none;
-}
-
-.metrics-table tr:hover {
-    background: rgba(96, 165, 250, 0.05);
-}
-
-.metrics-table td:first-child {
-    font-weight: 500;
-    color: #60a5fa;
-}
-
-.project-tools {
-    color: #94a3b8;
     font-size: 1rem;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
+    padding: 0.8rem 1.2rem;
+    text-align: left;
+    opacity: 0.9;
+}
+
+.project-details h4 {
+    color: #e2e8f0;
+    font-size: 1.2rem;
+    margin: 2rem 0 1rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    opacity: 1;
+}
+
+.project-details ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 1.5rem;
+}
+
+.project-details ul li {
+    color: #e2e8f0;
+    margin: 0.8rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 1rem;
+    line-height: 1.5;
+    opacity: 0.9;
+}
+
+.project-details ul li:before {
+    content: "•";
+    color: #60a5fa;
+    position: absolute;
+    left: 0;
+    opacity: 1;
+}
+
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    margin-top: 1.5rem;
+}
+
+.tech-stack span {
+    background: rgba(96, 165, 250, 0.1);
+    color: #60a5fa;
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    opacity: 1;
 }
 
 .project-link {
@@ -405,10 +473,6 @@
 .project-link:hover {
     background: rgba(96, 165, 250, 0.2);
     transform: translateX(5px);
-}
-
-.project-link i {
-    font-size: 1.1rem;
 }
 
 /* Skills Grid Enhancement */
@@ -541,6 +605,22 @@ footer::before {
         width: 100%;
         max-width: 300px;
         justify-content: center;
+    }
+    
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .data-stat {
+        position: relative;
+        top: 0;
+        right: 0;
+        margin-bottom: 1rem;
+        display: inline-block;
+    }
+    
+    .project-card {
+        padding: 1.5rem;
     }
 }
 
@@ -715,30 +795,38 @@ footer::before {
 
 /* Responsive adjustments */
 @media (max-width: 1200px) {
-    .projects-grid {
+    .project-grid {
         grid-template-columns: 1fr;
         max-width: 800px;
     }
     
     .project-card {
         min-height: auto;
-        padding: 2rem 1.5rem;
     }
 }
 
 @media (max-width: 768px) {
-    .project-card h3 {
-        font-size: 1.5rem;
+    .project-grid {
+        padding: 1rem;
     }
     
-    .project-card p {
-        font-size: 1rem;
+    .project-card {
+        padding: 1.5rem;
     }
     
+    .project-content h3 {
+        font-size: 1.4rem;
+    }
+    
+    .project-description,
+    .project-details ul li,
     .metrics-table th,
     .metrics-table td {
-        padding: 0.8rem;
-        font-size: 0.9rem;
+        font-size: 0.95rem;
+    }
+    
+    .tech-stack span {
+        font-size: 0.85rem;
     }
 }
 
@@ -961,4 +1049,13 @@ footer::before {
         font-size: 0.8rem;
         padding: 0.4rem 0.8rem;
     }
+}
+
+/* Ensure all project titles in any context use the same blue */
+h3.project-title {
+    color: #60a5fa;
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
