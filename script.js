@@ -1,123 +1,106 @@
 // Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // Text rotation animation with enhanced timing
-    const texts = [
-        'Data Analyst',
-        'Financial Business Analyst',
-        'Business Analyst',
-        'Insurance Risk Analyst'
-    ];
+    console.log('DOM Content Loaded');
+    
+    // Text rotation animation
+    const textElements = document.querySelectorAll('.typing-text .text');
     let currentIndex = 0;
-    const textDisplay = document.querySelector('.typing-text .text.first');
-    const typingDelay = 80; // Faster typing speed
-    const erasingDelay = 40; // Faster erasing speed
-    const newTextDelay = 1500; // Shorter pause between texts
-    let charIndex = 0;
-    let isDeleting = false;
 
-    function type() {
-        const currentText = texts[currentIndex];
-        if (isDeleting) {
-            textDisplay.textContent = currentText.substring(0, charIndex - 1);
-            charIndex--;
-        } else {
-            textDisplay.textContent = currentText.substring(0, charIndex + 1);
-            charIndex++;
-        }
-
-        if (!isDeleting && charIndex === currentText.length) {
-            isDeleting = true;
-            setTimeout(type, newTextDelay);
-            return;
-        }
-
-        if (isDeleting && charIndex === 0) {
-            isDeleting = false;
-            currentIndex = (currentIndex + 1) % texts.length;
-        }
-
-        setTimeout(type, isDeleting ? erasingDelay : typingDelay);
+    function showNextText() {
+        // Hide current text
+        textElements[currentIndex].style.opacity = '0';
+        
+        setTimeout(() => {
+            // Move to next text
+            currentIndex = (currentIndex + 1) % textElements.length;
+            // Show next text
+            textElements[currentIndex].style.opacity = '1';
+        }, 500);
     }
 
-    // Start the typing animation with a slight delay
-    setTimeout(type, 1000);
+    // Show first text immediately
+    if (textElements.length > 0) {
+        textElements[0].style.opacity = '1';
+        // Start rotation
+        setInterval(showNextText, 3000);
+    }
 
-    // Enhanced smooth scrolling with easing
+    // Make hero section visible immediately
+    const hero = document.querySelector('.hero');
+    const heroContent = document.querySelector('.hero-content');
+    
+    if (hero && heroContent) {
+        hero.style.opacity = '1';
+        hero.style.visibility = 'visible';
+        heroContent.style.opacity = '1';
+        heroContent.style.visibility = 'visible';
+    }
+
+    // Make all sections visible
+    document.querySelectorAll('.section').forEach(section => {
+        section.style.opacity = '1';
+        section.style.visibility = 'visible';
+        section.style.transform = 'none';
+    });
+
+    // Smooth scroll for navigation links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
+        anchor.addEventListener('click', function (e) {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                const headerOffset = 80;
-                const elementPosition = target.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                window.scrollTo({
-                    top: offsetPosition,
+                target.scrollIntoView({
                     behavior: 'smooth'
                 });
             }
         });
     });
 
-    // Enhanced active section highlighting
-    const sections = document.querySelectorAll('section');
-    const navLinks = document.querySelectorAll('.nav-links a');
+    // Active section highlighting
+    const sections = document.querySelectorAll('.section');
+    const navLinks = document.querySelectorAll('.nav-link');
 
-    function highlightNavigation() {
-        let scrollPosition = window.scrollY + 100;
+    function highlightNavLink() {
+        const scrollPosition = window.scrollY;
 
-        sections.forEach(section => {
+        sections.forEach((section, index) => {
             const sectionTop = section.offsetTop - 100;
             const sectionBottom = sectionTop + section.offsetHeight;
-            const sectionId = section.getAttribute('id');
 
             if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === '#' + sectionId) {
-                        link.classList.add('active');
-                    }
-                });
+                navLinks.forEach(link => link.classList.remove('active'));
+                navLinks[index].classList.add('active');
             }
         });
     }
 
-    // Throttled scroll event listener
-    let ticking = false;
-    window.addEventListener('scroll', function() {
-        if (!ticking) {
-            window.requestAnimationFrame(function() {
-                highlightNavigation();
-                ticking = false;
-            });
-            ticking = true;
-        }
-    });
+    window.addEventListener('scroll', highlightNavLink);
 
-    // Enhanced navbar background change
+    // Navbar background change on scroll
     const nav = document.querySelector('.nav');
-    let lastScroll = 0;
+    
+    function updateNavBackground() {
+        if (window.scrollY > 50) {
+            nav.style.background = 'rgba(15, 23, 42, 0.95)';
+            nav.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+        } else {
+            nav.style.background = 'transparent';
+            nav.style.boxShadow = 'none';
+        }
+    }
 
-    window.addEventListener('scroll', () => {
-        const currentScroll = window.pageYOffset;
+    window.addEventListener('scroll', updateNavBackground);
+    updateNavBackground();
+
+    // Add hover effect to buttons
+    document.querySelectorAll('.primary-btn, .secondary-btn').forEach(button => {
+        button.addEventListener('mouseover', () => {
+            button.style.transform = 'translateY(-2px)';
+        });
         
-        if (currentScroll > 100) {
-            nav.style.background = 'rgba(26, 26, 26, 0.98)';
-            nav.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.2)';
-        } else {
-            nav.style.background = 'rgba(26, 26, 26, 0.95)';
-            nav.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
-        }
-
-        // Hide/show navbar on scroll
-        if (currentScroll > lastScroll && currentScroll > 100) {
-            nav.style.transform = 'translateY(-100%)';
-        } else {
-            nav.style.transform = 'translateY(0)';
-        }
-
-        lastScroll = currentScroll;
+        button.addEventListener('mouseout', () => {
+            button.style.transform = 'translateY(0)';
+        });
     });
 
     // Enhanced scroll progress indicator
@@ -155,21 +138,10 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Add parallax effect to hero section
-    const hero = document.querySelector('.hero');
+    const heroSection = document.querySelector('.hero');
     window.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset;
-        hero.style.backgroundPositionY = scrolled * 0.5 + 'px';
-    });
-
-    // Add hover effect to project cards
-    document.querySelectorAll('.project-card').forEach(card => {
-        card.addEventListener('mouseenter', () => {
-            card.style.transform = 'translateY(-10px)';
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'translateY(0)';
-        });
+        heroSection.style.backgroundPositionY = scrolled * 0.5 + 'px';
     });
 
     // Add ripple effect to buttons
@@ -192,6 +164,20 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(() => ripple.remove(), 600);
         });
     });
+
+    // Center content on resize
+    function adjustContentPosition() {
+        if (heroContent) {
+            const viewportHeight = window.innerHeight;
+            const contentHeight = heroContent.offsetHeight;
+            const navHeight = document.querySelector('.nav')?.offsetHeight || 0;
+            const adjustment = Math.max(0, (viewportHeight - contentHeight - navHeight) / 2);
+            heroContent.style.transform = `translateY(calc(-5% + ${adjustment}px))`;
+        }
+    }
+
+    window.addEventListener('resize', adjustContentPosition);
+    adjustContentPosition();
 });
 
 // Add styles for new features
