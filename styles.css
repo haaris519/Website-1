@@ -2085,3 +2085,132 @@ h3.project-title {
         grid-template-columns: 1fr;
     }
 }
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2.5rem;
+    padding: 2rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.experience-card {
+    background: rgba(17, 25, 40, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(59, 130, 246, 0.18);
+    box-shadow: 0 8px 32px rgba(59, 130, 246, 0.10);
+    padding: 2.2rem 2rem 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+    position: relative;
+    overflow: hidden;
+}
+
+.experience-card:hover {
+    transform: translateY(-8px) scale(1.025);
+    box-shadow: 0 16px 40px rgba(59, 130, 246, 0.18);
+    border-color: var(--primary-light);
+    background: rgba(17, 25, 40, 0.95);
+}
+
+.exp-header {
+    margin-bottom: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.exp-header h3 {
+    color: var(--primary-light);
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 0 0.2rem 0;
+    letter-spacing: -0.5px;
+    text-shadow: 0 1px 2px rgba(59, 130, 246, 0.15);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.exp-org {
+    color: var(--accent-light);
+    font-size: 1.05rem;
+    font-weight: 600;
+}
+
+.exp-location {
+    color: #94a3b8;
+    font-size: 0.98rem;
+    margin-bottom: 0.1rem;
+}
+
+.exp-dates {
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    font-style: italic;
+    margin-bottom: 0.2rem;
+}
+
+.exp-bullets {
+    margin: 1rem 0 1.2rem 0;
+    padding-left: 1.2rem;
+    list-style: none;
+}
+
+.exp-bullets li {
+    color: #e2e8f0;
+    font-size: 1.05rem;
+    margin-bottom: 0.7rem;
+    position: relative;
+    padding-left: 1.2rem;
+    line-height: 1.6;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.10);
+}
+
+.exp-bullets li::before {
+    content: '\f058'; /* Font Awesome check-circle */
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    color: var(--primary-light);
+    position: absolute;
+    left: 0;
+    font-size: 1rem;
+    top: 0.1rem;
+}
+
+.exp-skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: auto;
+}
+
+.exp-skills span {
+    background: rgba(59, 130, 246, 0.13);
+    color: var(--primary-light);
+    padding: 0.4rem 1rem;
+    border-radius: 15px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    border: 1px solid rgba(59, 130, 246, 0.18);
+    transition: background 0.3s;
+}
+
+.exp-skills span:hover {
+    background: var(--gradient-1);
+    color: #fff;
+}
+
+@media (max-width: 900px) {
+    .experience-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1rem 0;
+    }
+    .experience-card {
+        padding: 1.5rem 1.2rem 1.2rem 1.2rem;
+    }
+}
