@@ -28,14 +28,42 @@
     <div class="container">
         <!-- Navigation -->
         <nav class="nav">
-            <div class="nav-brand">Shaik Haaris Saad</div>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#tableau-viz">Visualizations</a>
-                <a href="#contact">Contact</a>
+            <div class="nav-brand">
+                <div class="brand-icon">
+                    <i class="fas fa-chart-line"></i>
+                </div>
+                <span class="brand-text">Shaik Haaris Saad</span>
             </div>
+            <div class="nav-links">
+                <a href="#about" class="nav-link" data-tooltip="About Me">
+                    <i class="fas fa-user"></i>
+                    <span>About</span>
+                    <div class="nav-indicator"></div>
+                </a>
+                <a href="#skills" class="nav-link" data-tooltip="My Skills">
+                    <i class="fas fa-code"></i>
+                    <span>Skills</span>
+                    <div class="nav-indicator"></div>
+                </a>
+                <a href="#projects" class="nav-link" data-tooltip="My Projects">
+                    <i class="fas fa-project-diagram"></i>
+                    <span>Projects</span>
+                    <div class="nav-indicator"></div>
+                </a>
+                <a href="#tableau-viz" class="nav-link" data-tooltip="Visualizations">
+                    <i class="fas fa-chart-bar"></i>
+                    <span>Dashboards</span>
+                    <div class="nav-indicator"></div>
+                </a>
+                <a href="#contact" class="nav-link" data-tooltip="Get in Touch">
+                    <i class="fas fa-envelope"></i>
+                    <span>Contact</span>
+                    <div class="nav-indicator"></div>
+                </a>
+            </div>
+            <button class="menu-toggle" aria-label="Toggle Menu">
+                <i class="fas fa-bars"></i>
+            </button>
         </nav>
 
         <!-- Hero Section -->
@@ -49,6 +77,7 @@
                         <span class="text">Financial Analyst</span>
                         <span class="text">Business Analyst</span>
                         <span class="text">Risk Analyst</span>
+                        <span class="text">Data Engineer</span>
                     </div>
                 </div>
                 <p class="hero-description">
@@ -70,12 +99,41 @@
 
         <!-- About Section -->
         <section id="about" class="section">
-            <div class="section-content">
+            <div class="section-header">
+                <div class="header-icon">
+                    <i class="fas fa-user"></i>
+                </div>
                 <h2>About Me</h2>
+                <p class="section-subtitle">Get to know me better</p>
+                <div class="section-line"></div>
+            </div>
+            <div class="section-content">
                 <div class="about-content">
                     <div class="about-text">
-                        <p>Detail-oriented Analyst with hands-on expertise in business analytics, risk assessment, and predictive modeling. Proficient in SQL, Python, R, Tableau, and Power BI, with a solid foundation in insurance risk analytics and financial data processing.</p>
-                        <p>Experienced in data management, compliance reporting, and supporting strategic decision-making across insurance operations and underwriting. Adept at leveraging data-driven insights to improve risk management frameworks, streamline processes, and drive operational efficiency.</p>
+                        <p>👋 Hi! I'm a Data Analytics enthusiast with a Master's in Business Analytics from NAU and a Tableau Certified Data Analyst. I love turning complex data into beautiful stories that drive business decisions.</p>
+                        
+                        <div class="about-highlights">
+                            <div class="highlight-item">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Data Visualization Expert</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-brain"></i>
+                                <span>Predictive Analytics</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-lightbulb"></i>
+                                <span>Business Intelligence</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-code"></i>
+                                <span>Python & R Developer</span>
+                            </div>
+                        </div>
+
+                        <p>🎯 My superpower? Creating interactive dashboards that make data come alive! I've helped businesses improve decision-making by up to 40% and reduced operational costs by 15-30% through data-driven solutions.</p>
+
+                        <p>💡 When I'm not diving into datasets, you'll find me exploring new analytics tools or sharing knowledge with the data science community. Let's connect and turn your data into actionable insights!</p>
                     </div>
                 </div>
             </div>
@@ -83,8 +141,15 @@
 
         <!-- Skills Section -->
         <section id="skills" class="section">
-            <div class="section-content">
+            <div class="section-header">
+                <div class="header-icon">
+                    <i class="fas fa-code"></i>
+                </div>
                 <h2>My Skills</h2>
+                <p class="section-subtitle">Technical expertise & capabilities</p>
+                <div class="section-line"></div>
+            </div>
+            <div class="section-content">
                 <div class="skills-grid">
                     <div class="skill-category">
                         <h3>Data Analysis</h3>
@@ -122,6 +187,18 @@
             <div class="section-content">
                 <h2>Certifications</h2>
                 <div class="cert-grid">
+                    <a href="https://www.credly.com/earner/earned/share/55ea8f7c-faef-4b9c-a3b4-1f4e3e3eea3a" class="cert-card" target="_blank">
+                        <i class="fas fa-certificate"></i>
+                        <h3>Tableau Certified Data Analyst</h3>
+                        <p>Tableau</p>
+                        <span class="cert-date">2024</span>
+                    </a>
+                    <a href="https://www.credly.com/earner/earned/share/55ea8f7c-faef-4b9c-a3b4-1f4e3e3eea3a" class="cert-card" target="_blank">
+                        <i class="fas fa-certificate"></i>
+                        <h3>Data Analytics Professional Certificate</h3>
+                        <p>Google</p>
+                        <span class="cert-date">2024</span>
+                    </a>
                     <a href="https://www.linkedin.com/posts/haaris-saad-shaik_im-happy-to-share-that-ive-obtained-a-new-activity-7153854282201489409-t5Q7?utm_source=share&utm_medium=member_desktop&rcm=ACoAAC3zomkBhDudpySWdNrcQqBApcNu-Gv89o4" class="cert-card" target="_blank">
                         <i class="fas fa-certificate"></i>
                         <h3>Tableau Desktop Specialist</h3>
@@ -151,8 +228,15 @@
         </section>
 
         <!-- Projects Section -->
-        <section class="section" id="projects">
-            <h2>Projects</h2>
+        <section id="projects" class="section">
+            <div class="section-header">
+                <div class="header-icon">
+                    <i class="fas fa-project-diagram"></i>
+                </div>
+                <h2>Projects</h2>
+                <p class="section-subtitle">Featured work & achievements</p>
+                <div class="section-line"></div>
+            </div>
             <div class="project-grid">
                 <!-- Workforce Analytics Project -->
                 <div class="project-card">
@@ -415,11 +499,35 @@
 
         <!-- Tableau Visualizations Section -->
         <section id="tableau-viz" class="section">
-            <h2>Interactive Dashboards</h2>
+            <div class="section-header">
+                <div class="header-icon">
+                    <i class="fas fa-chart-bar"></i>
+                </div>
+                <h2>Interactive Dashboards</h2>
+                <p class="section-subtitle">Data visualization & analytics</p>
+                <div class="section-line"></div>
+            </div>
             <div class="viz-grid">
-                <!-- Stock Performance Dashboard -->
+                <!-- Financial Analytics Dashboard -->
                 <div class="viz-card">
                     <div class="viz-number">01</div>
+                    <h3>Financial Analytics Dashboard</h3>
+                    <p>A comprehensive portfolio performance tracker delivering actionable insights into stock behavior, volatility trends, and investment performance. Features include dynamic portfolio value tracking, profit & loss analysis, volatility trends visualization, historical trend analysis, and interactive filters for deep-dive analysis.</p>
+                    <div class="viz-tools">
+                        <span class="tool-tag">Tableau</span>
+                        <span class="tool-tag">Financial Analytics</span>
+                        <span class="tool-tag">Portfolio Management</span>
+                        <span class="tool-tag">Investment Strategy</span>
+                        <span class="tool-tag">Data Storytelling</span>
+                    </div>
+                    <a href="https://public.tableau.com/app/profile/haaris.saad.shaik/viz/capstone_Haaris12/Dashboard1" class="viz-link" target="_blank">
+                        <i class="fas fa-external-link-alt"></i> View Dashboard
+                    </a>
+                </div>
+
+                <!-- Stock Performance Dashboard -->
+                <div class="viz-card">
+                    <div class="viz-number">02</div>
                     <h3>Stock Performance Dashboard</h3>
                     <p>Comprehensive financial analytics dashboard tracking portfolio performance, stock volatility, and individual stock movements. Features include portfolio value tracking, profit/loss analysis, historical trends, and volatility patterns for informed investment decisions.</p>
                     <div class="viz-tools">
@@ -435,7 +543,7 @@
 
                 <!-- COVID-19 Impact Analysis -->
                 <div class="viz-card">
-                    <div class="viz-number">02</div>
+                    <div class="viz-number">03</div>
                     <h3>COVID-19 Impact Analysis</h3>
                     <p>Comprehensive visualization analyzing the global impact of COVID-19 on health metrics and economic indicators.</p>
                     <div class="viz-tools">
@@ -452,8 +560,15 @@
 
         <!-- Contact Section -->
         <section id="contact" class="section">
-            <div class="section-content">
+            <div class="section-header">
+                <div class="header-icon">
+                    <i class="fas fa-envelope"></i>
+                </div>
                 <h2>Let's Connect</h2>
+                <p class="section-subtitle">Get in touch for opportunities</p>
+                <div class="section-line"></div>
+            </div>
+            <div class="section-content">
                 <p class="contact-intro">Feel free to reach out for collaborations or just a friendly chat</p>
                 <div class="contact-links">
                     <a href="mailto:haaris519@gmail.com" class="contact-item">

@@ -3,27 +3,21 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM Content Loaded');
     
     // Text rotation animation
-    const textElements = document.querySelectorAll('.typing-text .text');
+    const typingText = document.querySelector('.typing-text');
+    const texts = Array.from(document.querySelectorAll('.typing-text .text'));
     let currentIndex = 0;
-
-    function showNextText() {
-        // Hide current text
-        textElements[currentIndex].style.opacity = '0';
-        
-        setTimeout(() => {
-            // Move to next text
-            currentIndex = (currentIndex + 1) % textElements.length;
-            // Show next text
-            textElements[currentIndex].style.opacity = '1';
-        }, 500);
+    if (texts.length === 0) return; // No roles, do nothing
+    if (texts.length === 1) {
+        texts[0].classList.add('active');
+        return; // Only one role, just show it
     }
-
-    // Show first text immediately
-    if (textElements.length > 0) {
-        textElements[0].style.opacity = '1';
-        // Start rotation
-        setInterval(showNextText, 3000);
-    }
+    // Set initial state
+    texts.forEach((text, idx) => text.classList.toggle('active', idx === 0));
+    setInterval(() => {
+        texts[currentIndex].classList.remove('active');
+        currentIndex = (currentIndex + 1) % texts.length;
+        texts[currentIndex].classList.add('active');
+    }, 2000);
 
     // Make hero section visible immediately
     const hero = document.querySelector('.hero');
@@ -178,6 +172,112 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addEventListener('resize', adjustContentPosition);
     adjustContentPosition();
+
+    // Navigation functionality
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinksContainer = document.querySelector('.nav-links');
+    const scrollProgress = document.createElement('div');
+    scrollProgress.className = 'scroll-progress';
+    document.body.appendChild(scrollProgress);
+
+    // Mobile menu toggle
+    menuToggle?.addEventListener('click', () => {
+        navLinksContainer.classList.toggle('active');
+        menuToggle.setAttribute('aria-expanded', 
+            menuToggle.getAttribute('aria-expanded') === 'true' ? 'false' : 'true'
+        );
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!navLinksContainer.contains(e.target) && !menuToggle.contains(e.target)) {
+            navLinksContainer.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    // Scroll progress indicator
+    window.addEventListener('scroll', () => {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        scrollProgress.style.transform = `scaleX(${scrolled / 100})`;
+
+        // Add scrolled class to nav
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+
+        // Update active nav link
+        const sections = document.querySelectorAll('section[id]');
+        const scrollY = window.pageYOffset;
+
+        sections.forEach(section => {
+            const sectionHeight = section.offsetHeight;
+            const sectionTop = section.offsetTop - 100;
+            const sectionId = section.getAttribute('id');
+            const navLink = document.querySelector(`.nav-link[href="#${sectionId}"]`);
+
+            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+                navLink?.classList.add('active');
+            } else {
+                navLink?.classList.remove('active');
+            }
+        });
+    });
+
+    // Smooth scroll for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+            
+            if (targetElement) {
+                // Close mobile menu if open
+                navLinksContainer.classList.remove('active');
+                menuToggle.setAttribute('aria-expanded', 'false');
+
+                // Smooth scroll to target
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Add hover effect for section headers
+    document.querySelectorAll('.section-header').forEach(header => {
+        header.addEventListener('mouseenter', () => {
+            header.querySelector('.header-icon')?.classList.add('hover');
+        });
+        header.addEventListener('mouseleave', () => {
+            header.querySelector('.header-icon')?.classList.remove('hover');
+        });
+    });
+
+    // Add intersection observer for section animations
+    const observerOptions2 = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer2 = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+                observer2.unobserve(entry.target);
+            }
+        });
+    }, observerOptions2);
+
+    document.querySelectorAll('.section').forEach(section => {
+        observer2.observe(section);
+    });
 });
 
 // Add styles for new features
